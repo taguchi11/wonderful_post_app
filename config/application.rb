@@ -33,6 +33,15 @@ module WonderfulPostApp
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
+
+    config.generators do |g|
+      g.jbuilder false  # <= json.jbuilder ファイルの生成をしない
+      g.javascripts false   # <= css,javascriptファイルを作成しない
+      g.stylesheets false # <= cssファイルを作成しない
+      g.helper false    # <= helperファイルを作成しない
+      g.test_framework false  # <= テストファイルを作成しない
+    end
+
     config.generators.system_tests = nil
   end
 end
