@@ -1,1 +1,5 @@
 <h1>ハローワールド</h1>
+<% @articles.each do |article| %>
+  <div><%= "title: #{article.title}" %></div>
+  <div><%= "content: #{article.content}" %></div>
+<% end %>
