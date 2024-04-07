@@ -1,5 +1,9 @@
-<h1>Articles</h1>
+<h1>index.html</h1>
+
 <% @articles.each do |article| %>
-  <div><%= "#{article.title}" %></div>
-  <div><%= "#{article.content}" %></div>
+  <p><span>タイトル：</span><%= article.title %></p>
+  <p><span>内容：</span><%= article.content %></p>
+
+<%= link_to '詳細へ', "/articles/#{article.id}" %>
+
 <% end %>
