@@ -1,0 +1,10 @@
+<h1>index.html</h1>
+<%= link_to '作成', "/articles/new" %>
+
+<% @articles.each do |article| %>
+  <p><span>タイトル：</span><%= article.title %></p>
+  <p><span>内容：</span><%= article.content %></p>
+
+<%= link_to '詳細へ', "/articles/#{article.id}" %>
+
+<% end %>
