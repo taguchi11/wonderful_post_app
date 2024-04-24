@@ -1,9 +1,7 @@
 <h1>new.html</h1>
 <h3>投稿する</h3>
 <%= form_with(model: @article, local: true) do |article| %>
-  <%# フォームの内部 %>
 <p><%= article.text_field :title, placeholder: "タイトル" %></p>
 <p><%= article.text_field :content, placeholder: "テキスト" %></p>
 <p><%= article.submit value="投稿" %></p>
-
 <% end %>

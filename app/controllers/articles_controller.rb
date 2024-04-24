@@ -1,27 +1,26 @@
 class ArticlesController < ApplicationController
   def index
-    # binding.pry
     @articles = Article.all
   end
   def show
-    # binding.pry
     @article = Article.find(params[:id])
-    # binding.pry
   end
   def new
-    binding.pry
     @article = Article.new
-    binding.pry
   end
   def create
-    binding.pry
     @article = Article.new(article_params)
-    binding.pry
-    @article.save
+    @article
+    if @article.save
+      puts "保存に成功しました"
+      # 保存成功時の処理
+    else
+      puts "保存に失敗しました"
+      # 保存失敗時の処理
+    end
   end
 private
   def article_params
-    # params[:カラム名]
-    params.permit(:title, :content)
+    params.require(:article).permit(:title, :content)
   end
 end
