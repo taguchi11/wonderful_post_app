@@ -19,6 +19,9 @@ class ArticlesController < ApplicationController
       # 保存失敗時の処理
     end
   end
+  def edit
+    @article = Article.find_by(id: params[:id])
+  end
 private
   def article_params
     params.require(:article).permit(:title, :content)
