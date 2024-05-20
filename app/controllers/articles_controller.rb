@@ -4,9 +4,9 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
   def show
-    binding.pry
+    # binding.pry
     # @article = Article.find(params[:id])
-    binding.pry
+    # binding.pry
   end
   def new
     @article = Article.new
@@ -27,15 +27,16 @@ class ArticlesController < ApplicationController
     # binding.pry
   end
   def update
-    binding.pry
+    # binding.pry
     if @article.update(article_params)
-      binding.pry
-      puts "保存に成功しました"
+      flash[:notice] = "記事を編集しました。"
+      redirect_to  @article
       # 保存成功時の処理
-        else
-       puts "保存に失敗しました"
-          # 保存失敗時の処理
-       end
+      else
+        flash[:notice] = "投稿に失敗しました"
+        render :edit
+        # 保存失敗時の処理
+      end
   end
 private
   def set_article

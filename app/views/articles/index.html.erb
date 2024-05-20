@@ -11,6 +11,7 @@
   <td><%= article.title %></td>
   <td><%= article.content %></td>
   <td><%= link_to '詳細', "/articles/#{article.id}" %></td>
+    <td><%= link_to '編集', "/articles/#{article.id}/edit" %></td>
   </tr>
   <% end %>
 </table>
