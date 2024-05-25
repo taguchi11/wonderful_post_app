@@ -12,6 +12,7 @@
   <td><%= article.content %></td>
   <td><%= link_to '詳細', "/articles/#{article.id}" %></td>
     <td><%= link_to '編集', "/articles/#{article.id}/edit" %></td>
+    <td><%= button_to '削除', article ,method: :delete %>
   </tr>
   <% end %>
 </table>

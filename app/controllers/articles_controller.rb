@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update]
+  before_action :set_article, only: [:show, :edit, :update ,]
   def index
     @articles = Article.all
   end
@@ -37,6 +37,15 @@ class ArticlesController < ApplicationController
         render :edit
         # 保存失敗時の処理
       end
+  end
+  def destroy
+    binding.pry
+    @article = Article.find_by(id: params[:id])
+    binding.pry
+    @article.destroy
+    binding.pry
+    redirect_to root_path notice: 'successfully destroyed.'
+    binding.pry
   end
 private
   def set_article
