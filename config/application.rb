@@ -43,5 +43,7 @@ module WonderfulPostApp
     end
 
     config.generators.system_tests = nil
+    config.i18n.default_locale = :ja # 翻訳ファイル配置
+    config.time_zone = 'Tokyo'# タイムゾーンを東京に設定
   end
 end

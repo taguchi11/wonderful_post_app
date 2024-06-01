@@ -1,4 +1,4 @@
-<h1>記事作成</h1>
+<h1>記事編集</h1>
 <%= form_with(model: @article, local: true) do |article| %>
 <h3>タイトル</h3>
 <p><%= article.text_field :title, placeholder: "タイトル" %></p>
@@ -6,9 +6,4 @@
 <p><%= article.text_field :content, placeholder: "本文" %></p>
 <p><%= article.submit value="保存" %></p>
 <% end %>
-<%
-=begin%>
- <p><%= link_to '詳細', "/articles/#{article.id}" %></p>
-<%
-=end%>
-<p><%= link_to '一覧', "/" %></p>
+<td><%= link_to '一覧', "/" %></td>
