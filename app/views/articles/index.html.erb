@@ -1,6 +1,13 @@
 <h1>マイページ</h1>
+<p><%= flash[:success] %></p>
+<p><%= flash[:alert] %></p>
+<%= flash[:notice] %>
+<%
+=begin%>
+ <% @article.errors %>
+<%
+=end%>
 <%= link_to '記事作成', "/articles/new" %>
-
 <table>
   <tr>
     <th>タイトル</th>

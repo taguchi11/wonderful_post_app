@@ -6,5 +6,9 @@
 <p><%= article.text_field :content, placeholder: "本文" %></p>
 <p><%= article.submit value="保存" %></p>
 <% end %>
-<p><%= link_to '詳細', "/articles/#{article.id}" %></p>
+<%
+=begin%>
+ <p><%= link_to '詳細', "/articles/#{article.id}" %></p>
+<%
+=end%>
 <p><%= link_to '一覧', "/" %></p>

@@ -46,6 +46,9 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'pry-doc'
+
+  gem 'rails-i18n'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
