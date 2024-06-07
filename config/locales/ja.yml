@@ -1,21 +1,12 @@
 ja:
   activerecord:
    # モデルに対応
-   errors:
     models:
-      article: '記事'
+      article: 記事
+      user: ユーザー
     attributes:
       # カラム名に対応
       # articleモデル
-      format: "%{attribute} %{message}"
        article:
-          title:
-            blank: "空になっています。入力してください。"
-          content:
-            blank: "空になっています。入力してください。"
-    models:
-      article: "記事"
-    attributes:
-          title: "タイトル"
-          content: "名前"
-
+          title: タイトル
+          content: コンテンツ
