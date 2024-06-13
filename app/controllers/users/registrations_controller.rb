@@ -1,18 +1,28 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
-    super
+  # super
+  binding.pry
+    @user = User.new
+  binding.pry
   end
 
   # POST /resource
-  # def create
+  def create
   #   super
-  # end
+    @user = User.new(configure_permitted_parameters)
+    if @user.save
+      sign_in(@user)
+      redirect_to # 任意のパス
+    else
+      render 'new'
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -49,9 +59,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
   # # 入力フォームからアカウント名の情報をDB保存する
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-  # end
+  def configure_permitted_parameters
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   "/user/#{current_user.id}"
