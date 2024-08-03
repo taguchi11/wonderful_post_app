@@ -9,9 +9,16 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    binding.pry
+    user =  User.find_by(email: sign_in_params[:email])
+    binding.pry
+    if user.two_factor_enabled
+      return redirect_to users_two_factor_path
+    end
+
+    allow_params_authentication!
+  end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -21,7 +28,9 @@ class Users::SessionsController < Devise::SessionsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
+  def configure_sign_in_params
+    binding.pry
+     devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
+     binding.pry
+  end
 end
